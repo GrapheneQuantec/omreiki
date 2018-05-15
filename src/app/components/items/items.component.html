@@ -1,0 +1,168 @@
+<div *ngIf="items?.length > 0;else noItems">
+  <ul *ngFor="let item of items" class="collection">
+    <li class="collection-item"><strong>{{item.title}}: </strong> {{item.content}} <a href="#" class="secondary-content">
+      <i (click)="editItem($event, item)" class="fa fa-pencil"></i>  
+      <i *ngIf="editState && itemToEdit.id == item.id" (click)="clearState()" class="fa fa-compress"></i>  
+    </a>
+    
+    <div *ngIf="editState && itemToEdit.id == item.id">
+      <form (ngSubmit)="updateItem(item)">
+          <div class="row">
+              <div class="input-field col s6">
+                <input type="text" placeholder="Add Title" [(ngModel)]="item.title" name="title">
+              </div>
+              <div class="input-field col s6">
+                <input type="text" placeholder="Add Content" [(ngModel)]="item.content" name="content">
+              </div>
+              <input type="submit" value="Update Item" class="btn orange">
+              <button (click)="deleteItem($event, item)" class="btn red">Delete Item</button>
+            </div>
+      </form>
+    </div>
+
+    </li>
+  </ul>
+</div>
+
+<ng-template #noItems>
+  <hr>
+  <h5>There are no items to list</h5>
+</ng-template>
+
+
+<div class="ytBgContainer">
+  <div class="video-bg cover">
+    <div class="video-fg">
+      <div id="streamPlayer"></div>
+    </div>
+  </div>
+</div>
+<div id="page" class="site">
+
+	<div class="site-content-contain">
+		<div id="content" class="site-content">
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+
+		<article id="post-2" class="twentyseventeen-panel  post-2 page type-page status-private hentry" >
+
+	
+	<div class="panel-content">
+		<div class="wrap">
+			<header class="entry-header">
+				<h2 class="entry-title">Private: Meditation</h2>
+			</header><!-- .entry-header -->
+
+			<div class="entry-content">
+				<div class="mainView">
+<div class="leftMainPanel">
+<div class="startOmReikiElement">
+<div class="startOmReikiButton button">Set Om Reiki</div>
+<div class="meditationOptions" style="display: none;">
+<div class="affirmationsInOptions"></div>
+<div class="valueSetters">
+<div class="karaokeCounter"><input class="button" type="text" value="16"> <span>Affirmations number</span></div>
+<div class="karaokeTimer"><input class="affValue button" type="text" value="60"> <span>(ms) Meditation tempo</span></div>
+</div>
+<p>slow<input class="affRange" type="range" min="1" max="120" value="60" style="
+    width: 100px;
+    display: inline;
+    vertical-align: middle;
+    margin: 0 15px;
+">fast</p>
+<div class="startOmReiki button">Start</div>
+</div>
+</div>
+<div class="mastersElement menuElement"><img src="../assets/images/menu/invocationd.gif" alt="masters" /></div>
+<div class="menuElement"><img src="../assets/images/menu/doubleOmegaAffirmation_200.gif" alt="affirmation" /></div>
+<div class="menuElement"><img src="../assets/images/menu/SymbolsMeditation_300.png" alt="meditation" /></div>
+<div class="menuElement"><img src="../assets/images/menu/grail2dorbit_300.gif" alt="prayer" /></div>
+<div class="menuElement"><img src="../assets/images/menu/omreikisongtantrabeta.png" alt="song" /></div>
+<div class="quantecPlayButton menuButton">Start Quantec</div>
+<div class="quantecFrequency"><input class="button" type="text" value="790"><span class="button">ms</span></div>
+
+</div>
+<div class="rightMainPanel">
+<div class="meditationElements">
+<div id="masters"><div class='pfpItem entry-content'><div class="mastersGallery">
+<div class="mastersIcons" target="michelle"><img src="../assets/images/masters/michelle.png" alt="" />Thompson Michelle</div>
+<div class="mastersIcons" target="cicciolinaImage"><img src="../assets/images/masters/cic.png" alt="" />Cicciolina</div>
+<div class="mastersIcons" target="usuireiki"><img src="../assets/images/masters/lei.png" alt="" />Furumoto Phyllis Lei</div>
+<div class="mastersIcons" target="omreiki"><img src="../assets/images/masters/aordania.gif" alt="" />Om Reiki Dania</div>
+<div class="mastersIcons" target="thaddeusImage"><img src="../assets/images/masters/TadeuszLeft.jpg" alt="" />Habdank Thaddeus</div>
+<div class="mastersIcons" target="masterLiImage"><img src="../assets/images/masters/Sankta_Li_chingYuen.jpeg" alt="" />Li Ching-Yuen</div>
+</div>
+<div class="invocationPreview">
+<div id="invocationText" class="invocationElement">I live pro Beta OM Reiki<br />
+I like to do Beta OM Reiki<br />
+I love to do Beta OM Reiki<br />
+I am lucky to do Beta OM Reiki<br />
+My life’s Force is Beta OM Reiki<br />
+My life’s Energy is Beta OM Reiki<br />
+My life’s Momentum is Beta OM Reiki<br />
+My life’s Willpower is Beta OM Reiki<br />
+My life’s Order is Beta OM Reiki</div>
+<div><img id="michelle" class="invocationElement" src="../assets/images/masters/big/Michelle.jpg" alt="" width="840" height="560" /></div>
+<div><img id="cicciolinaImage" class="invocationElement" src="../assets/images/masters/big/Cicciolinebig.jpg" alt="" width="1500" height="750" /></div>
+<div><img id="usuireiki" class="invocationElement" src="../assets/images/masters/big/usuireikilineage.png" alt="" width="1500" height="750" /></div>
+<div><img id="omreiki" class="invocationElement" src="../assets/images/masters/big/tjhwhorgy.gif" alt="" /></div>
+<div><img id="thaddeusImage" class="invocationElement" src="../assets/images/masters/big/healthytadeusz1.gif" alt="" width="1500" height="750" /></div>
+<div><img id="masterLiImage" class="invocationElement" src="../assets/images/masters/big/sanktamasterli.gif" alt="" width="1500" height="750" /></div>
+</div>
+</div></div>
+<div id="affirmation"><div class='pfpItem entry-content'><div class="leftPanel">
+<span class="affirmationListTitle">Affirmations</span>
+<ul class="selectAffirmation">
+<li *ngFor="let item of items" id="{{item.id}}">{{item.title}}</li>
+</ul>
+</div>
+<div class="rightPanel">
+<div class="affirmation">
+<div class="superLogos" delay="1">QUANT</div>
+<div class="subLogoi"><span class="aveLogos" delay="1">AVE AVE</span> <span class="jhwhLogos" delay="1">יהוה</span> <span class="allaLogos" no-wrap='true' delay="1">الإلَه</span></div>
+
+<div  *ngFor="let item of items" id="affirmation_{{item.id}}" class="affirmationContent">
+<div class='pfpItem entry-content'><p>{{item.content}}</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="meditation">
+<div id="symbolsPlayer"></div>
+</div>
+<div id="prayer">
+<div class="GrailImage small"></div>
+</div>
+<div id="song">
+<div class="audioSong"><div id="songPlayer"></div></div>
+</div>
+</div>
+<div class="HealCodes">
+<div>22 11 377 ~&gt; to improve memory</div>
+<div>29 56 932 ~&gt; for dementia</div>
+<div>25 49 563 ~&gt; for Alzheimers dementia</div>
+</div>
+</div>
+</div>
+			</div><!-- .entry-content -->
+
+		</div><!-- .wrap -->
+	</div><!-- .panel-content -->
+
+</article><!-- #post-## -->
+
+		
+	</main><!-- #main -->
+</div><!-- #primary -->
+
+
+		</div><!-- #content -->
+
+	</div><!-- .site-content-contain -->
+</div><!-- #page -->
