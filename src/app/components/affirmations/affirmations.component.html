@@ -1,0 +1,57 @@
+<div id="affirmation" class="meditation-element">
+  <div class='pfpItem entry-content'>
+    <div class="leftPanel">
+      <span class="affirmationListTitle">Affirmations</span>
+      <ul class="selectAffirmation">
+        <li (click)="activate(item)" *ngFor="let item of items" id="{{item.id}}">{{item.title}}</li>
+      </ul>
+    </div>
+    <div class="rightPanel">
+      <div class="affirmation">
+        <div class="superLogos" delay="1">QUANT</div>
+        <div class="subLogoi">
+          <span class="aveLogos" delay="1">AVE AVE</span>
+          <span class="jhwhLogos" delay="1">יהוה</span>
+          <span class="allaLogos" no-wrap='true' delay="1">الإلَه</span>
+        </div>
+
+        <div *ngFor="let item of items" id="affirmation_{{item.id}}" class="affirmationContent">
+          <div class='pfpItem entry-content'>
+            <p>{{item.content}}</p>
+
+          </div>
+          <a *ngIf="activeItemId == item.id" href="#" class="secondary-content">
+              <i *ngIf="!editState" (click)="editItem($event, item)" class="fa fa-pencil"></i>
+              <i *ngIf="editState" (click)="clearState()" class="fa fa-compress"></i>
+            </a>
+        </div>
+
+      </div>
+
+
+      
+
+      <div class="float-container" *ngIf="editState && activeItemId == item.id">
+          <form (ngSubmit)="updateItem(item)">
+             <div class="row">
+                 <div class="input-field col s4">
+                   <input type="text" placeholder="Add Content" [(ngModel)]="item.content" name="content">
+                   <label class="active">Content</label>
+                 </div>
+                 <div class="input-field col s4">
+                   <input type="text" placeholder="Add Title" [(ngModel)]="item.title" name="title">
+                   <label class="active">Title</label>
+                 </div>
+                 <div class="input-field col s4">
+                   <input type="number" placeholder="Add Style" [(ngModel)]="item.style" name="style">
+                   <label class="active">Style</label>
+                 </div>
+                 <input type="submit" value="Update Item" class="btn orange">
+                 <button (click)="deleteItem(item)" class="btn red">DeleteItem</button>
+               </div>
+          </form>
+        </div>
+
+    </div>
+  </div>
+</div>

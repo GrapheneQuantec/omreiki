@@ -12,13 +12,17 @@ import { ItemsComponent } from './components/items/items.component';
 import { ItemService } from './services/item.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
+import { AffirmationsComponent } from './components/affirmations/affirmations.component';
+import { InvocationComponent } from './components/invocation/invocation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
     NavbarComponent,
-    AddItemComponent
+    AddItemComponent,
+    AffirmationsComponent,
+    InvocationComponent
   ],
   imports: [
     BrowserModule,

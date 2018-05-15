@@ -30,7 +30,12 @@ export class ItemService {
   }
 
   addItem(item: Item){
-    this.itemsCollection.add(item);
+    let promise = new Promise((resolve, reject) => {
+      this.itemsCollection.add(item)
+      .then((data) => { resolve(data); })
+      .catch(error => reject(error) );
+    });
+    return promise;
   }
 
   deleteItem(item: Item){

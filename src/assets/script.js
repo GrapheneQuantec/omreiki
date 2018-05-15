@@ -9,7 +9,7 @@ var quantInterval = false;
 function selectMeditationPart(toBeSelected) {
   jQuery('.menuElement').removeClass('selected');
   toBeSelected.addClass('selected');
-  jQuery('.meditationElements > div').hide().removeClass('selected');
+  jQuery('.meditationElements .meditation-element').hide().removeClass('selected');
   jQuery('#' + toBeSelected.find('img').attr('alt')).show().addClass('selected');
 }
 
@@ -172,7 +172,7 @@ jQuery( document ).ready(function() {
     // keys that will work on specific meditation page
 
 
-    switch (jQuery('.meditationElements').children('.selected').attr('id')){
+    switch (jQuery('.meditationElements  .meditation-element.selected').attr('id')){
 
         case 'masters':
 
@@ -304,7 +304,7 @@ jQuery( document ).ready(function() {
     selectAffirmation(prevAffirmation);
   }
 
-  jQuery('.meditationElements > div').hide().first().show();
+  jQuery('.meditationElements .meditation-element').hide().first().show();
   jQuery('.mastersElement.menuElement').addClass('selected');
 
   jQuery('.menuElement').click(function(){
@@ -356,8 +356,8 @@ jQuery( document ).ready(function() {
       scaledUpGrail(true);
 
       quantInterval = setInterval(function(){
-        jQuery('.meditationElements > div').hide();
-        jQuery('.meditationElements > div:eq( '+ counter + ')').show();
+        jQuery('.meditationElements .meditation-element').hide();
+        jQuery('.meditationElements .meditation-element:eq( '+ counter + ')').show();
 
         if (counter < 4) {
           counter = counter + 1;

@@ -19,10 +19,8 @@ export class AddItemComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log('oto ja');
     
     if(this.item.title != '' && this.item.content != ''){
-      console.log('jestem');
       this.itemService.addItem(this.item);
       this.item.title = '';
       this.item.content = '';
