@@ -10,10 +10,25 @@ import { AppComponent } from './app.component';
 import { ItemsComponent } from './components/items/items.component';
 
 import { ItemService } from './services/item.service';
+import { CustomAuthService } from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { AffirmationsComponent } from './components/affirmations/affirmations.component';
 import { InvocationComponent } from './components/invocation/invocation.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from "angular5-social-login";
+import { AuthService } from 'angular5-social-login/auth.service';
+
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("40254136973-bk3fu4c70tlb039tah2mn9mp5jd00462.apps.googleusercontent.com")
+        }
+      ]);
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -22,15 +37,24 @@ import { InvocationComponent } from './components/invocation/invocation.componen
     NavbarComponent,
     AddItemComponent,
     AffirmationsComponent,
-    InvocationComponent
+    InvocationComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    SocialLoginModule
   ],
-  providers: [ItemService],
+  providers: [
+    ItemService,
+    CustomAuthService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
